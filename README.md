@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/unomaly/fluent-plugin-unomaly.svg?branch=master)](https://travis-ci.org/unomaly/fluent-plugin-unomaly)
 
-Unomaly output plugin for Fluentd
+This plugin sends Fluents records to the Unomaly ingestion API (min version Unomaly 2.27).
 
 ## Getting started
 
