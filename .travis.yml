@@ -1,25 +1,26 @@
 language: ruby
-
 rvm:
-  - 2.1
-  - 2.2
-  - 2.3.6
-  - 2.4.3
-  - 2.5.0
-  - ruby-head
-
+- 2.1
+- 2.2
+- 2.3.6
+- 2.4.3
+- 2.5.0
+- ruby-head
 gemfile:
- - Gemfile
-
+- Gemfile
 branches:
   only:
-    - master
-
+  - master
 before_install: gem update bundler
 script: bundle exec rake test
-
 sudo: false
-
 matrix:
   allow_failures:
-    - rvm: ruby-head
+  - rvm: ruby-head
+deploy:
+  provider: rubygems
+  api_key:
+    secure: LfVGVLEVibxY7IlJAP5T04O02Lz2xT0Z60EVCR3kLy4oaEJowHptuv3F0FF7kZlSJOKmFc1Ibvtebx7vsqIpcNCPt/wOKUQ/fjf1KRBkEuaDwRq/rOpHlBJNJtdF7PrquzuRV2Y7UKGfKjGVgn9rjykzHxFwtuWiDnMxaMADAqMPK3p7CLBixEHQ2Wpyi5/wNJo2k5YIyd/SSIiYiP5ey0n981cBNVTQnjMbhyBoWSjn4GFkmRflPht04ZrF8jyFOYkC7HvQsz3d0oBB+GOXXiZlhb1xZvH2ScRi/2U/rzw61Lqi0mZjEiavtmNgco2bR3+AfgikAI+iH0+lZqPhwZkig2X7SwZYHQIrPUxPp4C1Iwbe6TJgQXgxQ7Fa624p0DmkJan96yqN3iKLm9rz3A64nncyAJLN+2UfngLLtGhGzNeT8w9q/SNmX3N92qQKNH4qqXIe+gCxtxXiJUwbFxn66AY+2s007M9K8xK1iHn6twsQYk5c6Q+j+x3S1JbBvJflM1XQjivoAJ73R2TTui+H5QKo4ZePuESKYkdtxl+qn34OY23HuCJtd5S0YDY9YhlRyot0uqAYtijroEsR53of9KF3nbebKZGnOml6yohSGPx/wTuCDpRKszSfJfjHvoF1ntlM2d+xA/T7LxqFDJbmZkEtaQjp4c9gpCfy05M=
+  gem: fluent-plugin-unomaly
+  on:
+    tags: true
