@@ -1,22 +1,17 @@
 language: ruby
 rvm:
-- 2.1
-- 2.2
-- 2.3.6
-- 2.4.3
-- 2.5.0
-- ruby-head
+  - 2.5.0
 gemfile:
-- Gemfile
+  - Gemfile
 branches:
   only:
-  - master
+    - master
 before_install: gem update bundler
-script: bundle exec rake test
+script:
+  - bundle install
+  - bundle exec rake test
 sudo: false
-matrix:
-  allow_failures:
-  - rvm: ruby-head
+
 deploy:
   provider: rubygems
   api_key:
