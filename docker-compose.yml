@@ -1,0 +1,6 @@
+ruby:
+  build: .
+  volumes:
+    - ./:/unomaly
+  command:
+    - sh
