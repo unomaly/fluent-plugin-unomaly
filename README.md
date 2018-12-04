@@ -28,7 +28,7 @@ Minimal configuration:
 | host                     | Unomaly instance address. Must define full path such as "https://my-instance:443" | No default |
 | message_key              | The key in the Logstash event that Unomaly should use for anomaly detection.      | "message"  |
 | source_key               | The event key defining the Unomaly system.                                        | "host"     |
-| accept_self_signed_certs | Accept self signed SSL certificate                                                | "strict"   |
+| accept_self_signed_certs | Accept self signed SSL certificate                                                | "false"    |
 
 ## Contributing
 
