@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/unomaly/fluent-plugin-unomaly.svg?branch=master)](https://travis-ci.org/unomaly/fluent-plugin-unomaly)
 
-This plugin sends Fluents records to the Unomaly ingestion API (min version Unomaly 2.27).
+This plugin sends Fluents records to the [Unomaly](https://www.unomaly.com) ingestion API (min version Unomaly 2.27).
 
 ## Getting started
 
