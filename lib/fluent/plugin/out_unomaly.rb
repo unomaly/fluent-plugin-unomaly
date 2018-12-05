@@ -82,8 +82,11 @@ module Fluent
         metadata.delete(@message_key)
         metadata["tag"]=tag
 
-        unomaly_event["metadata"]=flatten(metadata,"")
+        unomaly_event["metadata"]=metadata.to_json
 
+        if @debug
+          log.info "Event #{unomaly_event.to_json}"
+        end
         documents.push(unomaly_event)
       end
       send_batch(documents)
@@ -92,13 +95,16 @@ module Fluent
     def send_batch(events)
       url = @host + @api_path
       body = events.to_json
+      ssl = url.start_with?('https')
       uri = URI.parse(url)
       header = {'Content-Type' => 'application/json'}
 
       http = Net::HTTP.new(uri.host, uri.port)
-      http.use_ssl = true
-      if @accept_self_signed_certs
-        http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+      if ssl
+        http.use_ssl = true
+        if @accept_self_signed_certs
+          http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+        end
       end
 
       request = Net::HTTP::Post.new(uri.request_uri, header)

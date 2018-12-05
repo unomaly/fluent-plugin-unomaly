@@ -1,3 +1,7 @@
+# 0.1.4
+
+- Add support for plain HTTP
+
 # 0.1.3
 
 - Update lib path from `fluentd` to `fluent`
