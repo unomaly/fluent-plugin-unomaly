@@ -1,6 +1,10 @@
+# 0.1.5
+
+- Fix bug where metadata was sent a string
+
 # 0.1.4
 
-- Add support for plain HTTP
+- Add support for plain HTTP and stop flattening metadata
 
 # 0.1.3
 

@@ -82,7 +82,7 @@ module Fluent
         metadata.delete(@message_key)
         metadata["tag"]=tag
 
-        unomaly_event["metadata"]=metadata.to_json
+        unomaly_event["metadata"]=metadata
 
         if @debug
           log.info "Event #{unomaly_event.to_json}"
