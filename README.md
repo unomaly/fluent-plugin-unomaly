@@ -23,12 +23,12 @@ Minimal configuration:
 
 # Important configuration options
 
-| Option                   | Description                                                                       | Default    |
-| ------------------------ | --------------------------------------------------------------------------------- | ---------- |
-| host                     | Unomaly instance address. Must define full path such as "https://my-instance:443" | No default |
-| message_key              | The key in the Logstash event that Unomaly should use for anomaly detection.      | "message"  |
-| source_key               | The event key defining the Unomaly system.                                        | "host"     |
-| accept_self_signed_certs | Accept self signed SSL certificate                                                | "false"    |
+| Option                   | Description                                                                                                                                                                  | Default    |
+| ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| host                     | Unomaly instance address.                                                                                                                                                    | No default |
+| message_key              | The field that contains the full/raw log message that Unomaly should look at for anomaly detection                                                                           | "message"  |
+| source_key               | The field that will be used to associate this event with a system in Unomaly (should be a field that uniquely identifies the system the message comes from, like a hostname) | "host"     |
+| accept_self_signed_certs | Accept self signed SSL certificate                                                                                                                                           | "false"    |
 
 ## Contributing
 
