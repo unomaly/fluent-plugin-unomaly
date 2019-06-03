@@ -72,8 +72,8 @@ module Fluent
       documents = []
       chunk.msgpack_each do |(tag, time, record)|
         unomaly_event = {
-            message: record[@message_key],
-            source: record[@source_key],
+            message: record[@message_key].to_s,
+            source: record[@source_key].to_s,
             timestamp: Time.at(time).utc.to_datetime.rfc3339
         }
         metadata = record.to_hash
