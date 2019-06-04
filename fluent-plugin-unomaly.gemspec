@@ -20,7 +20,7 @@ Gem::Specification.new do |spec|
     spec.add_runtime_dependency "fluentd", "~> 0.12"
     spec.add_runtime_dependency "http", "< 3"
   
-    spec.add_development_dependency "bundler", "~> 1.7"
+    spec.add_development_dependency "bundler", "~> 2.0.1"
     spec.add_development_dependency "rake", "~> 10.0"
     spec.add_development_dependency "webmock", "~> 2.1"
     spec.add_development_dependency "test-unit"
