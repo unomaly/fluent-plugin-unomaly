@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
     spec.name        = 'fluent-plugin-unomaly'
-    spec.version     = '0.1.6'
+    spec.version     = '0.1.8'
   
     spec.summary     = "Fluentd output plugin for Unomaly"
     spec.description = "Fluentd output plugin for Unomaly"
