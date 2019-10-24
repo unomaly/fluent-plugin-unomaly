@@ -20,9 +20,6 @@ module Fluent
     # Key that will be used by Unomaly as the log message
     config_param :message_key,  :string, :default => "message"
 
-    # Key that will be used by Unomaly as the log message
-    config_param :date_key,  :string, :default => nil
-
     # Key that will be used by Unomaly as the system key
     config_param :source_key,  :string, :default => "host"
 
@@ -32,6 +29,7 @@ module Fluent
     # Display debug logs
     config_param :debug,  :bool, :default => false
 
+    # Accept self signed certs
     config_param :accept_self_signed_certs, :bool, :default => false
 
     # This method is called before starting.
@@ -88,6 +86,11 @@ module Fluent
           log.info "Event #{unomaly_event.to_json}"
         end
         documents.push(unomaly_event)
+
+        if documents.length >= @batch_size
+          send_batch(documents)
+          documents = []
+        end
       end
       send_batch(documents)
     end
@@ -106,6 +109,8 @@ module Fluent
           http.verify_mode = OpenSSL::SSL::VERIFY_NONE
         end
       end
+
+      log.info "Sending #{events.length} events to unomaly at #{@host}#{@api_path} (batch_size=#{@batch_size})"
 
       request = Net::HTTP::Post.new(uri.request_uri, header)
       request.body = body
